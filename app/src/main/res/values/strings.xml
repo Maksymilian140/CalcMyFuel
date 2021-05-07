@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CalcMyFuel</string>
+    <string name="starting_location">Starting location</string>
+    <string name="average_fuel_usage_l_100km">Average fuel usage (l/100km)</string>
+    <string name="fuel_in_tank_l">Fuel in tank (l)</string>
+    <string name="destination">Destination</string>
+    <string name="calculate">Calculate</string>
 </resources>
