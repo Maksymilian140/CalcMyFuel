@@ -1,98 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".startScreen">
-<EditText
-android:id="@+id/startingLocation"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:ems="10"
-android:inputType="textPersonName"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.498"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/startingLocationText" />
 
-<EditText
-android:id="@+id/editTextTextPersonName2"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:ems="10"
-android:inputType="textPersonName"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.497"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/destinationText" />
+    <EditText
+        android:id="@+id/startingLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startingLocationText" />
 
-<EditText
-android:id="@+id/avgFuelUsage"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:ems="10"
-android:inputType="textPersonName"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.502"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/avgFuelUsageText" />
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/destinationText" />
 
-<EditText
-android:id="@+id/fuelInTank"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:ems="10"
-android:inputType="textPersonName"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintHorizontal_bias="0.497"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/fuelInTankText" />
+    <EditText
+        android:id="@+id/avgFuelUsage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avgFuelUsageText" />
 
-<TextView
-android:id="@+id/startingLocationText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginTop="100dp"
-android:text="@string/starting_location"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toTopOf="parent" />
+    <EditText
+        android:id="@+id/fuelInTank"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fuelInTankText" />
 
-<TextView
-android:id="@+id/destinationText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/destination"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/startingLocation" />
+    <TextView
+        android:id="@+id/startingLocationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/starting_location"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<TextView
-android:id="@+id/avgFuelUsageText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/average_fuel_usage_l_100km"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+    <TextView
+        android:id="@+id/destinationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/destination"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startingLocation" />
 
-<TextView
-android:id="@+id/fuelInTankText"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="@string/fuel_in_tank_l"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/avgFuelUsage" />
+    <TextView
+        android:id="@+id/avgFuelUsageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/average_fuel_usage_l_100km"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
-<Button
-android:id="@+id/calculateButton"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:layout_marginTop="16dp"
-android:text="@string/calculate"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintTop_toBottomOf="@+id/fuelInTank" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/fuelInTankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/fuel_in_tank_l"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avgFuelUsage" />
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/calculate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fuelButtons" />
+
+    <RadioGroup
+        android:id="@+id/fuelButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fuelInTank">
+
+        <RadioButton
+            android:id="@+id/gasolineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/gasoline"
+            app:layout_constraintEnd_toStartOf="@+id/dieselButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fuelInTank" />
+
+        <RadioButton
+            android:id="@+id/dieselButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/diesel"
+            app:layout_constraintEnd_toStartOf="@+id/lpgButton"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/gasolineButton"
+            app:layout_constraintTop_toTopOf="@+id/gasolineButton" />
+
+        <RadioButton
+            android:id="@+id/lpgButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lpg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/dieselButton"
+            app:layout_constraintTop_toTopOf="@+id/gasolineButton" />
+
+    </RadioGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>
