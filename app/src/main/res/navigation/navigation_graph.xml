@@ -18,9 +18,5 @@
         android:id="@+id/resultScreen"
         android:name="com.example.calcmyfuel.resultScreen"
         android:label="fragment_result_screen"
-        tools:layout="@layout/fragment_result_screen" >
-        <action
-            android:id="@+id/action_resultScreen_to_startScreen"
-            app:destination="@id/startScreen" />
-    </fragment>
+        tools:layout="@layout/fragment_result_screen" />
 </navigation>

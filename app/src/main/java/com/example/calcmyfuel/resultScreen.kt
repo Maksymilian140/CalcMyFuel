@@ -21,7 +21,7 @@ class resultScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val goBackButton = view.findViewById<Button>(R.id.backButton);
         goBackButton.setOnClickListener{
-            Navigation.findNavController(view).navigate(R.id.action_resultScreen_to_startScreen);
+            Navigation.findNavController(view).popBackStack();
         }
 
     }
