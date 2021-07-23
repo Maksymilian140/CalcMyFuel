@@ -7,19 +7,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
+import com.example.calcmyfuel.databinding.FragmentResultScreenBinding
 
 class resultScreen : Fragment() {
-
+    lateinit var binding: FragmentResultScreenBinding
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_result_screen, container, false);
+        binding = FragmentResultScreenBinding.inflate(layoutInflater)
+        val view = binding.root
         return view;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val goBackButton = view.findViewById<Button>(R.id.backButton);
+        val goBackButton = binding.backButton
         goBackButton.setOnClickListener{
             Navigation.findNavController(view).popBackStack();
         }
