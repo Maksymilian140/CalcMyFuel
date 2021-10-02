@@ -8,9 +8,28 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.Navigation
 import com.example.calcmyfuel.databinding.FragmentResultScreenBinding
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
 
-class resultScreen : Fragment() {
+class resultScreen : Fragment(), OnMapReadyCallback {
+
+    private lateinit var googleMap: GoogleMap
+
     lateinit var binding: FragmentResultScreenBinding
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        //binding.mapView!!.onCreate(savedInstanceState)
+        //binding.mapView!!.onResume()
+        //binding.mapView!!.getMapAsync(this)
+    }
+
+    override fun onMapReady(map: GoogleMap?) {
+        map?.let{
+            googleMap = it
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         binding = FragmentResultScreenBinding.inflate(layoutInflater)
@@ -22,7 +41,7 @@ class resultScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val goBackButton = binding.backButton
         goBackButton.setOnClickListener{
-            Navigation.findNavController(view).popBackStack();
+            Navigation.findNavController(binding.root).navigate(R.id.action_resultScreen_to_mapsActivity)
         }
 
     }

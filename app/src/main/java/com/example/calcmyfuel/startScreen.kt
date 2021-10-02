@@ -26,8 +26,9 @@ class startScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val calculateButton = binding.calculateButton
         calculateButton.setOnClickListener{
-            calculate();
-            Navigation.findNavController(binding.root).navigate(R.id.action_startScreen_to_resultScreen);
+            calculate()
+            //Navigation.findNavController(binding.root).navigate(R.id.action_startScreen_to_resultScreen)
+            Navigation.findNavController(binding.root).navigate(R.id.action_startScreen_to_resultScreen)
         }
     }
 
