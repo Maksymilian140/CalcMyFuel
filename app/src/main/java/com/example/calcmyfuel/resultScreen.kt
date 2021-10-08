@@ -40,6 +40,12 @@ class resultScreen : Fragment(), OnMapReadyCallback {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val goBackButton = binding.backButton
+        binding.startL?.text = (activity as MainActivity).startingLocation
+        binding.dest?.text = (activity as MainActivity).destination
+        binding.averageF?.text = (activity as MainActivity).averageFuelUsage.toString()
+        binding.fuelI?.text = (activity as MainActivity).fuelInTank.toString()
+        binding.radio?.text = (activity as MainActivity).typeOfFuel.toString()
+
         goBackButton.setOnClickListener{
             Navigation.findNavController(binding.root).navigate(R.id.action_resultScreen_to_mapsActivity)
         }

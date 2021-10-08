@@ -5,11 +5,13 @@
       <map>
         <entry key="..\:/CalcMyFuel/app/src/main/res/layout/activity_maps.xml" value="0.1762917933130699" />
         <entry key="..\:/CalcMyFuel/app/src/main/res/layout/fragment_result_screen.xml" value="0.28940217391304346" />
+        <entry key="..\:/Users/Komputer-Maks/StudioProjects/CalcMyFuel/app/src/main/res/layout/fragment_result_screen.xml" value="0.28306159420289856" />
+        <entry key="..\:/Users/Komputer-Maks/StudioProjects/CalcMyFuel/app/src/main/res/layout/fragment_start_screen.xml" value="0.28306159420289856" />
         <entry key="..\:/artur/CalcMeFuel/app/src/main/res/layout/fragment_result_screen.xml" value="0.34564102564102567" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
