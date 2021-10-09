@@ -2,8 +2,10 @@ package com.example.calcmyfuel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import androidx.navigation.ActivityNavigator
 import com.example.calcmyfuel.databinding.ActivityMainBinding
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,4 +22,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
     }
+
+
 }

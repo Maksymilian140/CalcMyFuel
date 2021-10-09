@@ -1,6 +1,7 @@
 package com.example.calcmyfuel
 
 import android.os.Bundle
+import android.os.Environment
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,13 @@ import androidx.navigation.Navigation
 import com.example.calcmyfuel.databinding.FragmentResultScreenBinding
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import java.io.File
 
 class resultScreen : Fragment(), OnMapReadyCallback {
+
+    var path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+    var folder = File(path,"/CalcMyFuel")
+    var file = File(folder, "/data.txt")
 
     private lateinit var googleMap: GoogleMap
 
@@ -47,8 +53,23 @@ class resultScreen : Fragment(), OnMapReadyCallback {
         binding.radio?.text = (activity as MainActivity).typeOfFuel.toString()
 
         goBackButton.setOnClickListener{
+            createFile()
             Navigation.findNavController(binding.root).navigate(R.id.action_resultScreen_to_mapsActivity)
         }
 
+    }
+
+    private fun createFile() {
+        /*if (!folder.exists()) {
+            folder.mkdir()
+        }*/
+
+        folder.mkdir()
+
+        file.appendText("${(activity as MainActivity).startingLocation}\n")
+        file.appendText("${(activity as MainActivity).destination}\n")
+        file.appendText("${(activity as MainActivity).averageFuelUsage}\n")
+        file.appendText("${(activity as MainActivity).fuelInTank}\n")
+        file.appendText("${(activity as MainActivity).typeOfFuel}\n")
     }
 }
