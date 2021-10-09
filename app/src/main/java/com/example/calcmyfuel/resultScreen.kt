@@ -60,11 +60,13 @@ class resultScreen : Fragment(), OnMapReadyCallback {
     }
 
     private fun createFile() {
-        /*if (!folder.exists()) {
+        if (!folder.exists()) {
             folder.mkdir()
-        }*/
+        }
 
-        folder.mkdir()
+        if (file.exists()) {
+            file.delete()
+        }
 
         file.appendText("${(activity as MainActivity).startingLocation}\n")
         file.appendText("${(activity as MainActivity).destination}\n")

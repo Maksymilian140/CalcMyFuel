@@ -35,7 +35,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
 
         var coder : Geocoder = Geocoder(this);
-        var address : List<Address>;
+        var address : List<Address>
 
         val bufferedReader = file.bufferedReader()
         val text: List<String> = bufferedReader.readLines()
