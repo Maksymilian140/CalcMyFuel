@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.navigation.Navigation
 import com.example.calcmyfuel.databinding.FragmentResultScreenBinding
 import com.google.android.gms.maps.GoogleMap
@@ -45,6 +46,11 @@ class resultScreen : Fragment(), OnMapReadyCallback {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val LatLon = (activity as MapsActivity).getLatLon()
+        val distance = (activity as MapsActivity).CalculationByDistance(LatLon[0], LatLon[1])
+
+        binding.returnValueTextView?.text = distance.toString()
 
         binding.mapButton.setOnClickListener{
             createFile()

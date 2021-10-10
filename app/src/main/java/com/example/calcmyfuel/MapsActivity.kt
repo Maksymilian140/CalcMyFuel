@@ -116,6 +116,27 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         )
         return Radius * c
     }
+
+    fun getLatLon(): ArrayList<LatLng>{
+        var coder : Geocoder = Geocoder(this);
+        var address : List<Address>
+
+        val bufferedReader = file.bufferedReader()
+        val text: List<String> = bufferedReader.readLines()
+
+        strAddress = text[0];
+        strAddress2 = text[1];
+        address = coder.getFromLocationName(strAddress,5);
+        val address2 = coder.getFromLocationName(strAddress2,5);
+
+        val location : Address =address.get(0);
+        val location2 : Address =address.get(0);
+
+        val result = ArrayList<LatLng>()
+        result.add(LatLng(location.latitude, location.longitude))
+        result.add(LatLng(location2.latitude, location2.longitude))
+        return result
+    }
 /*
     fun getDirectionURL(origin: LatLng, dest: LatLng): String{
         print("https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=")
