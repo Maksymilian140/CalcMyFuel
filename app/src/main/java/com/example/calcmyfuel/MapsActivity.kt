@@ -1,7 +1,9 @@
 package com.example.calcmyfuel
 
+import android.graphics.Color
 import android.location.Address
 import android.location.Geocoder
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -14,7 +16,12 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.example.calcmyfuel.databinding.ActivityMapsBinding
+import com.google.android.gms.maps.model.PolylineOptions
+import com.google.gson.Gson
+import okhttp3.OkHttpClient
+import okhttp3.Request
 import java.io.File
+import java.lang.Exception
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -56,6 +63,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         lat2 = location2.getLatitude();
         lon2 = location2.getLongitude();
 
+        val origin = LatLng(lat1, lon1)
+        val dest = LatLng(lat2, lon2)
+
+        val URL = getDirectionURL(origin, dest)
+        GetDirection(URL).execute()
+
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -74,5 +87,45 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(firstMarker))
     }
 
+    fun getDirectionURL(origin: LatLng, dest: LatLng): String{
+        print("https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0")
+        return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
+    }
+
+    inner class GetDirection(val url: String) : AsyncTask<Void, Void, List<List<LatLng>>>(){
+        override fun doInBackground(vararg p0: Void?): List<List<LatLng>> {
+            val client = OkHttpClient()
+            val request = Request.Builder().url(url).build()
+            val response = client.newCall(request).execute()
+            val data = response.body().toString()
+            val result = ArrayList<List<LatLng>>()
+            try{
+                val respObj = Gson().fromJson(data, GoogleMapDTO::class.java)
+                val path = ArrayList<LatLng>()
+                for(i in  0..(respObj.routes[0].legs[0].steps.size - 1)){
+                    val startLatLng = LatLng(respObj.routes[0].legs[0].steps[i].start_location.lat.toDouble(), respObj.routes[0].legs[0].steps[i].start_location.lng.toDouble())
+                    path.add(startLatLng)
+                    val endLatLng = LatLng(respObj.routes[0].legs[0].steps[i].end_location.lat.toDouble(), respObj.routes[0].legs[0].steps[i].end_location.lng.toDouble())
+                    path.add(endLatLng)
+                }
+                result.add(path)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+            return result
+        }
+
+        override fun onPostExecute(result: List<List<LatLng>>?) {
+            val lineoption = PolylineOptions()
+            for(i in result!!.indices) {
+                lineoption.addAll(result[i])
+                lineoption.width(10f)
+                lineoption.color(Color.BLUE)
+                lineoption.geodesic(true)
+            }
+            mMap.addPolyline(lineoption)
+        }
+
+    }
 
 }

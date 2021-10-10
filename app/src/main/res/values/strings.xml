@@ -13,4 +13,5 @@
     <string name="diesel">Diesel</string>
     <string name="lpg">LPG</string>
     <string name="title_activity_maps">Map</string>
+    <string name="map">Map</string>
 </resources>
