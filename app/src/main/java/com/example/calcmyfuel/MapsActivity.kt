@@ -63,12 +63,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         lat2 = location2.getLatitude();
         lon2 = location2.getLongitude();
 
-        val origin = LatLng(lat1, lon1)
-        val dest = LatLng(lat2, lon2)
-
-        val URL = getDirectionURL(origin, dest)
-        GetDirection(URL).execute()
-
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -79,17 +73,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        val origin = LatLng(lat1, lon1)
+        val dest = LatLng(lat2, lon2)
 
         val firstMarker = LatLng(lat1, lon1)
         val secondMarker = LatLng(lat2, lon2)
         mMap.addMarker(MarkerOptions().position(firstMarker).title("Starting location"))
         mMap.addMarker(MarkerOptions().position(secondMarker).title("Destination"))
         mMap.moveCamera(CameraUpdateFactory.newLatLng(firstMarker))
+        //val URL = getDirectionURL(origin, dest)
+        //GetDirection(URL).execute()
     }
-
+/*
     fun getDirectionURL(origin: LatLng, dest: LatLng): String{
         print("https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0")
-        return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
+        //return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
+        return "https://maps.googleapis.com/maps/api/directions/json?origin=52.405625,16.933351&destination=53.436144,14.450666&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
     }
 
     inner class GetDirection(val url: String) : AsyncTask<Void, Void, List<List<LatLng>>>(){
@@ -123,9 +122,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 lineoption.color(Color.BLUE)
                 lineoption.geodesic(true)
             }
+            print(lineoption)
             mMap.addPolyline(lineoption)
         }
 
     }
+
+ */
 
 }
