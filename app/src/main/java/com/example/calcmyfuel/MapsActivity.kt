@@ -86,9 +86,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 /*
     fun getDirectionURL(origin: LatLng, dest: LatLng): String{
-        print("https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0")
-        //return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
-        return "https://maps.googleapis.com/maps/api/directions/json?origin=52.405625,16.933351&destination=53.436144,14.450666&key=AIzaSyAo3mSHcu5PD0Bmkk5xlfnQwswjyXau1u0"
+        print("https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key=")
+        //return "https://maps.googleapis.com/maps/api/directions/json?origin=${origin.latitude},${origin.longitude}&destination=${dest.latitude},${dest.longitude}&key="
+        return "https://maps.googleapis.com/maps/api/directions/json?origin=52.405625,16.933351&destination=53.436144,14.450666&key="
     }
 
     inner class GetDirection(val url: String) : AsyncTask<Void, Void, List<List<LatLng>>>(){
